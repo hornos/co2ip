@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+# http://stackoverflow.com/questions/10768160/ip-address-converter
+#
+
+ip2dec () {
+  local a b c d ip=$@
+  IFS=. read -r a b c d <<< "$ip"
+  printf '%d\n' "$((a * 256 ** 3 + b * 256 ** 2 + c * 256 + d))"
+}
+
+# #!/usr/bin/awk -f
+# # ip2dec
+# BEGIN {
+#   ip = ARGV[1]
+#   split(ip, octets, ".")
+#   for (i = 1; i <= 4; i++) {
+#     dec += octets[i] * 256 ** (4 - i)
+#   }
+#   printf("%i\n", dec)
+# }

@@ -1,0 +1,12 @@
+#!/bin/bash
+#
+# http://software77.net/geo-ip/?license
+#
+url="software77.net/geo-ip/?DL=1"
+dest=_iptocountry.csv
+
+wget ${url} -O - | \
+gunzip -c > ${dest}
+
+cat ${dest} | \
+grep -v '^#' > iptocountry.csv

@@ -1,0 +1,8 @@
+#!/bin/bash
+#
+# http://software77.net/geo-ip/?license
+#
+./download
+./convert.py iptocountry.csv
+./ranges.py ip2country.db
+

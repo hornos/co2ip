@@ -1,0 +1,9 @@
+#!/bin/bash
+
+ips=${1:-iptocountry.csv}
+
+IFS=$'\n'
+for i in $(cat ${ips}); do
+  echo $i | \
+  awk -F, '{if(!match($0,/^#/)) {print $1}}'
+done
